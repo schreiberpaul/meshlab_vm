@@ -3,30 +3,28 @@
 
 
 $script = <<-SCRIPT
-sudo apt-get update
-sudo apt-get -y install xfce4
+  #install packages
+	sudo apt-get update
+	sudo apt-get -y install xfce4
 
-sudo apt-get -y install subversion g++ zlib1g-dev build-essential git python python3
-sudo apt-get -y install libncurses5-dev gawk gettext unzip file libssl-dev wget
-sudo apt-get -y install libelf-dev ecj fastjar java-propose-classpath
-sudo apt-get -y install build-essential libncursesw5-dev python unzip
+	sudo apt-get -y install subversion g++ zlib1g-dev build-essential git python python3
+	sudo apt-get -y install libncurses5-dev gawk gettext unzip file libssl-dev wget
+	sudo apt-get -y install libelf-dev ecj fastjar java-propose-classpath
+	sudo apt-get -y install build-essential libncursesw5-dev python unzip
 
-#change keyboard layout to "de"
-sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="de"/' /etc/default/keyboard
-sudo loadkeys de &> /dev/null
+  #change keyboard layout to "de"
+	sudo sed -i 's/XKBLAYOUT="us"/XKBLAYOUT="de"/' /etc/default/keyboard
+	sudo loadkeys de &> /dev/null
 
-#change hostname
-sudo echo meshlab_vm > /etc/hostname
-
+  #change hostname
+	sudo echo meshlab_vm > /etc/hostname
 
 SCRIPT
 
 Vagrant.configure("2") do |config|
-
   config.vm.box = "ubuntu/bionic64"
   config.vm.provision "shell", 
 	inline: $script
-
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -74,11 +72,4 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
 end
