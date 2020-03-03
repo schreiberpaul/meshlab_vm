@@ -8,6 +8,7 @@ $script = <<-SCRIPT
 	sudo apt-get -y install xfce4
 
 	sudo apt-get -y install subversion g++ zlib1g-dev build-essential git python python3
+	sudo apt-get -y install python3-distutils
 	sudo apt-get -y install libncurses5-dev gawk gettext unzip file libssl-dev wget
 	sudo apt-get -y install libelf-dev ecj fastjar java-propose-classpath
 	sudo apt-get -y install build-essential libncursesw5-dev python unzip
